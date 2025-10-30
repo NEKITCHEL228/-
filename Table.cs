@@ -6,7 +6,7 @@ class Table
     public Dictionary<string, Reservation> Time;
 
 
-    void EditTable(string NewID, string NewLocation, int NewSpotCount, Dictionary<string, Reservation> NewTime)
+    void EditTable(Dictionary<string, Reservation> NewTime, string NewLocation, int NewSpotCount,  string NewID)
     {
         ID = NewID;
         Location = NewLocation;
