@@ -15,6 +15,7 @@
             Console.WriteLine("6.Вывести перечень всех бронирований");
             Console.WriteLine("7.Вывести информацию о бронировании по последним 4 цифрам номера телефона и имени клиента");
             Console.WriteLine("8.Завершение работы программы");
+            Console.Write("Команда: ");
 
             string? x = Convert.ToString(Console.ReadLine());
             switch (x)

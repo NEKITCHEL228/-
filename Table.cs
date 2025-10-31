@@ -1,12 +1,12 @@
 public class Table
 {
-    public string ID { get; set; }
+    public int ID { get; set; }
     public string Location { get; set; }
     public int SpotCount { get; set; }
     public Dictionary<string, Reservation> Time;
 
 
-    void EditTable(Dictionary<string, Reservation> NewTime, string NewLocation, int NewSpotCount, string NewID)
+    void EditTable(Dictionary<string, Reservation> NewTime, string NewLocation, int NewSpotCount, int NewID)
     {
         ID = NewID;
         Location = NewLocation;
@@ -14,7 +14,7 @@ public class Table
         Time = NewTime;
     }
 
-    public Table(string id, string location, int spotCount, Dictionary<string, Reservation> time = null)
+    public Table(int id, string location, int spotCount, Dictionary<string, Reservation> time = null)
     {
         ID = id;
         Location = location;

@@ -1,16 +1,16 @@
 public class Reservation
 {
-    public string ID { get; set; }
+    public int ID { get; set; }
     public string Name { get; set; }
-    public string PhoneNumber{ get; set; }
+    public string PhoneNumber { get; set; }
     private string StartReservation { get; set; }
     private string EndReservation { get; set; }
-    public string Comment{ get; set; }
-    private string TableID;
+    public string Comment { get; set; }
+    private int TableID;
     public string GetStartReservation() { return StartReservation; }
     public string GetEndReservation() { return EndReservation; }
 
-    public Reservation(List<Table> tables, string tableid, string id, string startreservation, string endreservation, string name = "Undefined", string phonenumber = "Undefined", string comment = "")
+    public Reservation(List<Table> tables, int id, int tableid, string name, string phonenumber, string startreservation, string endreservation, string comment = "")
     {
         ID = id;
         Name = name;
@@ -25,10 +25,10 @@ public class Reservation
 
     public static Reservation DefaultReservation()
     {
-        return new Reservation(new List<Table>(), "Undefined", "Undefined", "Undefined", "Undefined");
+        return new Reservation(new List<Table>(), -1, -1, "Undefined", "Undefined", "Undefined", "Undefined");
     }
 
-    private bool CheckTimeSlots(Table table, string startreservation, string endreservation, string id)
+    private bool CheckTimeSlots(Table table, string startreservation, string endreservation, int id)
     {
         int startreservationTime = Convert.ToInt32(startreservation.Split(":")[0]);
         int endreservationTime = Convert.ToInt32(endreservation.Split(":")[0]);
@@ -85,7 +85,7 @@ public class Reservation
         }
     }
 
-    private Table FindTable(ref List<Table> tables, string tableid)
+    private Table FindTable(ref List<Table> tables, int tableid)
     {
         for (int i = 0; i < tables.Count; i++)
         {
@@ -98,10 +98,10 @@ public class Reservation
 
         return null;
     }
-    void EditReservation(ref List<Table> tables, string startreservation, string endreservation, string tableid, string id = "Undefined", string name = "Undefined", string phonenumber = "Undefined", string comment = "")
+    void EditReservation(ref List<Table> tables, string startreservation, string endreservation, int tableid, int id, string name = "Undefined", string phonenumber = "Undefined", string comment = "")
     {
 
-        if (id != "undefined") ID = id;
+        ID = id;
         if (name != "undefined") Name = name;
         if (phonenumber != "undefined") PhoneNumber = phonenumber;
 
@@ -118,5 +118,16 @@ public class Reservation
         }
 
         if (comment != "undefined") Comment = comment;
+    }
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine($"ID клиента: {new string('-', 70)}{ID}.");
+        Console.WriteLine($"Имя клиента: {new string('-', 55)}«{Name}».");
+        Console.WriteLine($"Телефонный номер: {new string('-', 50)}{PhoneNumber}");
+        Console.WriteLine($"Начало брони: {new string('-', 70)}{StartReservation}.");
+        Console.WriteLine($"Конец брони: {new string('-', 55)}«{EndReservation}».");
+        Console.WriteLine($"Комментарий: {new string('-', 50)}{Comment}");
+        Console.WriteLine($"ID стола: {new string('-', 55)}{TableID}");
     }
 }
