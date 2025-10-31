@@ -1,12 +1,12 @@
-class Table
+public class Table
 {
-    public string ID = "Undefined";
-    public string Location = "Undefined";
-    public int SpotCount;
+    public string ID { get; set; }
+    public string Location { get; set; }
+    public int SpotCount { get; set; }
     public Dictionary<string, Reservation> Time;
 
 
-    void EditTable(Dictionary<string, Reservation> NewTime, string NewLocation, int NewSpotCount,  string NewID)
+    void EditTable(Dictionary<string, Reservation> NewTime, string NewLocation, int NewSpotCount, string NewID)
     {
         ID = NewID;
         Location = NewLocation;
@@ -14,7 +14,7 @@ class Table
         Time = NewTime;
     }
 
-    public Table(Dictionary<string, Reservation> time = null, string id = "Undefined", string location = "Undefined", int spotCount = 0)
+    public Table(string id, string location, int spotCount, Dictionary<string, Reservation> time = null)
     {
         ID = id;
         Location = location;
@@ -40,29 +40,28 @@ class Table
 
     public void PrintTable()
     {
-        Console.WriteLine($"ID: --------------------------------------------------------------------{ID}.");
-        Console.WriteLine($"Расположение:-------------------------------------------------------«{Location}».");
-        Console.WriteLine($"Количество мест: -----------------------------------------------------------{SpotCount}");
+        Console.WriteLine($"ID: {new string('-', 70)}{ID}.");
+        Console.WriteLine($"Расположение: {new string('-', 55)}«{Location}».");
+        Console.WriteLine($"Количество мест: {new string('-', 50)}{SpotCount}");
         Console.WriteLine("Расписание:");
 
         foreach (var timeSlot in Time)
         {
             string time = timeSlot.Key;
-            bool isBooked = timeSlot.Value.GetStartReservation() == time;
+            Reservation reservation = timeSlot.Value;
 
-            string baseLine = $"          {time} -------------------------------------------------";
+            string reservationInfo = "";
 
-            if (baseLine.Length < 60)
+            if (reservation != null && reservation.GetStartReservation() != "Undefined")
             {
-                baseLine = baseLine.PadRight(60, '-');
-            }
-            else
-            {
-                baseLine = baseLine.Substring(0, 60);
+                reservationInfo = $"ID {reservation.ID}, {reservation.Name}, {reservation.PhoneNumber}";
             }
 
-            string status = isBooked ? "Занято" : "Свободно";
-            Console.WriteLine($"{baseLine} {status}");
+            int dashCount = 50 - time.Length;
+            if (dashCount < 1) dashCount = 1;
+
+            string output = $"{time} {new string('-', dashCount)}{reservationInfo}";
+            Console.WriteLine(output);
         }
     }
 }

@@ -49,23 +49,5 @@
                     break;
             };
         }
-
-
-        Reservation reservation = new Reservation("1", "1", "кто-то", "+79998885342", "13:00", "15:00");
-
-        Dictionary<string, Reservation> timeSlots = new Dictionary<string, Reservation>
-        {
-            {"09:00-10:00", Reservation.DefaultReservation()},
-            {"10:00-11:00", Reservation.DefaultReservation()},
-            {"11:00-12:00", Reservation.DefaultReservation()},
-            {"12:00-13:00", Reservation.DefaultReservation()},
-            {"13:00-14:00", reservation},
-            {"14:00-15:00", reservation},
-            {"15:00-16:00", reservation},
-            {"16:00-17:00", Reservation.DefaultReservation()},
-            {"17:00-18:00", Reservation.DefaultReservation()}
-        };
-        Table myTable = new Table(timeSlots, "12345", "у окна", 3);
-        myTable.PrintTable();
     }
 }
