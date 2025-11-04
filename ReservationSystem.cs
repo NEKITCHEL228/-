@@ -1,3 +1,6 @@
+#pragma warning disable CS8604
+#pragma warning disable CS8600
+
 public class ReservationSystem
 {
     private List<Reservation> reservations = new List<Reservation>();
@@ -11,12 +14,19 @@ public class ReservationSystem
     public bool RemoveReservation(int reservationId)
     {
         var reservation = reservations.Find(r => r.ID == reservationId);
-        if (reservation != null)
+        if (reservation == null)
         {
-            reservations.Remove(reservation);
-            return true;
+            return false;
         }
-        return false;
+
+        var table = tables.Find(t => t.ID == reservation.TableID);
+        if (table != null)
+        {
+            reservation.DeleteReservation(ref table);
+        }
+
+        reservations.Remove(reservation);
+        return true;
     }
 
     public void PrintAllTablesID()

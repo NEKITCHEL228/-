@@ -1,5 +1,6 @@
-using Microsoft.VisualBasic;
-
+#pragma warning disable CS8600
+#pragma warning disable CS8601
+#pragma warning disable CS8602
 public class Reservation
 {
     public int ID { get; set; }
@@ -7,8 +8,8 @@ public class Reservation
     public string PhoneNumber { get; set; }
     private string StartReservation { get; set; }
     private string EndReservation { get; set; }
-    public string Comment { get; set; }
-    private int TableID;
+    private string Comment { get; set; }
+    public int TableID;
     public string GetStartReservation() { return StartReservation; }
     public string GetEndReservation() { return EndReservation; }
 
@@ -23,7 +24,7 @@ public class Reservation
         Comment = comment;
     }
 
-    private void DeleteReservation(ref Table table)
+    public void DeleteReservation(ref Table table)
     {
         table.RemoveReservation(ID);
     }

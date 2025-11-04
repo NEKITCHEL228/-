@@ -1,12 +1,14 @@
-﻿using System;
+﻿#pragma warning disable CS8604
+#pragma warning disable CS8600
+
 using System.Text;
 
 class Program
 {
     static void Main()
     {
-        Console.OutputEncoding = Encoding.UTF8;
-        Console.InputEncoding = Encoding.UTF8;
+        Console.OutputEncoding = Encoding.Unicode;
+        Console.InputEncoding = Encoding.Unicode;
 
         ReservationSystem system = new ReservationSystem();
         bool isProgramActive = true;
@@ -23,7 +25,8 @@ class Program
             Console.WriteLine("5.Вывести перечень всех доступных для брони столов по времени бронирования");
             Console.WriteLine("6.Вывести перечень всех бронирований");
             Console.WriteLine("7.Вывести информацию о бронированиях по последним 4 цифрам номера телефона и имени клиента");
-            Console.WriteLine("8.Завершение работы программы");
+            Console.WriteLine("8.Удаление бронирования");
+            Console.WriteLine("9.Завершение работы программы");
             Console.Write("Команда: ");
 
             string? x = Convert.ToString(Console.ReadLine());
@@ -86,6 +89,13 @@ class Program
                     break;
 
                 case "8":
+                    Console.Clear();
+                    Console.Write("Введите ID брони: ");
+                    n = Convert.ToInt32(Console.ReadLine());
+                    system.RemoveReservation(n);
+                    break;
+
+                case "9":
                     isProgramActive = false;
                     break;
 
