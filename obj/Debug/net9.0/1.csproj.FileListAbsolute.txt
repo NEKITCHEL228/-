@@ -27,3 +27,4 @@ C:\Users\nikki\.vscode\CSHARP\-\obj\Debug\net9.0\refint\1.dll
 C:\Users\nikki\.vscode\CSHARP\-\obj\Debug\net9.0\1.pdb
 C:\Users\nikki\.vscode\CSHARP\-\obj\Debug\net9.0\1.genruntimeconfig.cache
 C:\Users\nikki\.vscode\CSHARP\-\obj\Debug\net9.0\ref\1.dll
+C:\Users\M\.vscode\CSHARP\3.2_practic\1\obj\Debug\net9.0\1.sourcelink.json

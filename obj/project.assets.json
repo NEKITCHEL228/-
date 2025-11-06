@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\nikki\\.nuget\\packages\\": {}
+    "C:\\Users\\M\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nikki\\.vscode\\CSHARP\\-\\1.csproj",
+      "projectUniqueName": "C:\\Users\\M\\.vscode\\CSHARP\\3.2_practic\\1\\1.csproj",
       "projectName": "1",
-      "projectPath": "C:\\Users\\nikki\\.vscode\\CSHARP\\-\\1.csproj",
-      "packagesPath": "C:\\Users\\nikki\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nikki\\.vscode\\CSHARP\\-\\obj\\",
+      "projectPath": "C:\\Users\\M\\.vscode\\CSHARP\\3.2_practic\\1\\1.csproj",
+      "packagesPath": "C:\\Users\\M\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\M\\.vscode\\CSHARP\\3.2_practic\\1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nikki\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\M\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

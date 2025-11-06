@@ -90,6 +90,7 @@ class Program
 
                 case "8":
                     Console.Clear();
+                    system.PrintAllReservationsID();
                     Console.Write("Введите ID брони: ");
                     n = Convert.ToInt32(Console.ReadLine());
                     system.RemoveReservation(n);

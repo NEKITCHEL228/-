@@ -3,13 +3,20 @@
 #pragma warning disable CS8602
 public class Reservation
 {
-    public int ID { get; set; }
-    public string Name { get; set; }
-    public string PhoneNumber { get; set; }
-    private string StartReservation { get; set; }
-    private string EndReservation { get; set; }
-    private string Comment { get; set; }
-    public int TableID;
+    private int ID;
+    private string Name;
+    private string PhoneNumber;
+    private string StartReservation;
+    private string EndReservation;
+    private string Comment;
+    private int TableID;
+
+    public int GetTableID() { return TableID; }
+
+    public string GetPhoneNumber() { return PhoneNumber; }
+
+    public string GetName() { return Name; }
+    public int GetID() { return ID; }
     public string GetStartReservation() { return StartReservation; }
     public string GetEndReservation() { return EndReservation; }
 
@@ -20,7 +27,7 @@ public class Reservation
         PhoneNumber = phonenumber;
         StartReservation = startreservation;
         EndReservation = endreservation;
-        TableID = table.ID;
+        TableID = table.GetID();
         Comment = comment;
     }
 
@@ -34,8 +41,8 @@ public class Reservation
         if (name != "") Name = name;
         if (phonenumber != "") PhoneNumber = phonenumber;
 
-        Table ourTable = tables.Find(t => t.ID == this.TableID);
-        Table newTable = tables.Find(t => t.ID == tableid);
+        Table ourTable = tables.Find(t => t.GetID() == this.TableID);
+        Table newTable = tables.Find(t => t.GetID() == tableid);
 
         if (newTable.IsTimeFree(StartReservation, EndReservation, tableid))
         {

@@ -2,11 +2,12 @@
 
 public class Table
 {
-    public int ID { get; set; }
+    private int ID;
     public string Location { get; set; }
     public int SpotCount { get; set; }
     public Dictionary<string, Reservation> Time;
 
+    public int GetID(){ return ID; }
     public Table(int id, string location, int spotCount, Dictionary<string, Reservation> time = null)
     {
         ID = id;
@@ -54,7 +55,7 @@ public class Table
 
             if (reservation != null && reservation.GetStartReservation() != "")
             {
-                reservationInfo = $"ID {reservation.ID}, {reservation.Name}, {reservation.PhoneNumber}";
+                reservationInfo = $"ID {reservation.GetID()}, {reservation.GetName()}, {reservation.GetPhoneNumber()}";
             }
 
             int dashCount = 50 - time.Length;
@@ -81,7 +82,7 @@ public class Table
 
             if (s <= start && e >= end)
             {
-                if (existing != null && existing.ID != ignoreReservation) { return false; }
+                if (existing != null && existing.GetID() != ignoreReservation) { return false; }
             }
         }
 
@@ -113,7 +114,7 @@ public class Table
         foreach (var key in Time.Keys.ToList())
         {
             var r = Time[key];
-            if (r != null && r.ID == reservationId)
+            if (r != null && r.GetID() == reservationId)
                 Time[key] = null;
         }
     }
